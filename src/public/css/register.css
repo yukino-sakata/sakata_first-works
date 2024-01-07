@@ -1,0 +1,62 @@
+.content__register {
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.register__header {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0 0 0;
+}
+
+.register-item {
+    padding: 10px 0;
+}
+
+.register-item__name,
+.register-item__email,
+.register-item__pass,
+.register-item__pass-confirmation {
+    width: 350px;
+    height: 45px;
+    padding: 5px 15px;
+    border: solid 2px #999;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #666;
+    background: #EEE;
+}
+
+.register-button {
+    width: 350px;
+    height: 45px;
+    padding: 5px 15px;
+    border: #0242FF;
+    border-radius: 5px;
+    color: #FFF;
+    background: #0242FF;
+}
+
+.content__link {
+    font-size: 14px;
+    line-height: 5px;
+    padding-bottom: 200px;
+}
+
+.link-text {
+    color: #777;
+}
+
+.link-login {
+    text-decoration: none;
+    color: #0242FF;
+}
+
+.form-error {
+    font-size: 14px;
+    color: #FF3A3A;
+    display: block;
+}

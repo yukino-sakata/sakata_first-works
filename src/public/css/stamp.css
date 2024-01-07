@@ -1,0 +1,59 @@
+.header__content {
+    width: 30%;
+    margin: 0;
+}
+
+.header-nav__list {
+    width: 300px;
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+}
+
+.nav-link__home,
+.nav-link__date,
+.nav-link__button {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.stamp__content {
+    height: 600px;
+    margin: 0;
+}
+
+.top-message {
+    font-weight: bold;
+    font-size: 18px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.message-text {
+    margin: 0;
+}
+
+.stamp__content-inner {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.stamp__work-start,
+.stamp__work-finish,
+.stamp__rest-start,
+.stamp__rest-end {
+    width: 40%;
+    height: 150px;
+    background: #FFF;
+    border: none;
+    margin: 0 20px 40px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
