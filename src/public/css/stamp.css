@@ -44,15 +44,23 @@
     text-align: center;
 }
 
+.stamp__works,
+.stamp__rests {
+    display: flex;
+    margin: 0 auto;
+    width: 750px;
+    justify-content: space-between;
+}
+
 .stamp__work-start,
 .stamp__work-finish,
 .stamp__rest-start,
 .stamp__rest-end {
-    width: 40%;
+    width: 350px;
     height: 150px;
     background: #FFF;
     border: none;
-    margin: 0 20px 40px 20px;
+    margin: 0 0 40px 0;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;

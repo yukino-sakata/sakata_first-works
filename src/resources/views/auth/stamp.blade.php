@@ -24,13 +24,26 @@
     <div class="stamp__content">
         <div class="stamp__content-inner">
             <div class="top-message"><p class="message-text">{{ Auth::user()->name }}さんお疲れ様です！</p></div>
-            <form class="stamps">
-            @csrf
-                <button class="stamp__work-start">勤務開始</button>
-                <button class="stamp__work-finish">勤務終了</button>
-                <button class="stamp__rest-start">休憩開始</button>
-                <button class="stamp__rest-end">休憩終了</button>
-            </form>
-        <div>
+                <div class="stamp__works">
+                    <form class="stamps__work" action="/work-start" method="post">
+                    @csrf
+                        <button class="stamp__work-start" name="work-start">勤務開始</button>
+                    </form>
+                    <form class="stamps__work" action="/work-finish" method="post">
+                    @csrf
+                        <button class="stamp__work-finish">勤務終了</button>
+                    </form>
+                </div>
+                <div class="stamp__rests">
+                    <form class="stamps__rest">
+                    @csrf
+                        <button class="stamp__rest-start">休憩開始</button>
+                    </form>
+                    <form class="stamps__rest">
+                        <button class="stamp__rest-end">休憩終了</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
