@@ -18,5 +18,6 @@ Route::get('/', [AuthController::class, 'index']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::middleware('auth')->group(function () {
     Route::get('/stamp', [AuthController::class, 'stamp']);
-    Route::post('/work-start', [AuthController::class, 'create']);
 });
+Route::post('/work-start', [AuthController::class, 'create']);
+Route::post('/work-finish', [AuthController::class, 'update']);

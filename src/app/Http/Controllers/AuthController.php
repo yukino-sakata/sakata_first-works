@@ -37,6 +37,14 @@ class AuthController extends Controller
         return redirect('stamp');
     }
 
-
+    public function update(Request $request){
+        $user = Auth::user();
+        $work = Work::where('user_id', $user->id);
+        $work -> update([
+            'work-finish_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return redirect('stamp');
+    }
 
 }
