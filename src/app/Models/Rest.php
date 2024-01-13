@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Work extends Model
+class Rest extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'work_id',
         'date',
-        'work_start_time',
-        'work_finish_time'
+        'rest_start_time',
+        'rest_end_time'
     ];
 
     protected $hidden = [
@@ -21,7 +21,7 @@ class Work extends Model
         'updated_time'
     ];
 
-    public function user(){
-        $this -> belongsTo('User::class');
+    public function work(){
+        $this -> belongsTo('Work::class');
     }
 }

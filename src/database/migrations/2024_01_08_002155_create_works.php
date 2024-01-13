@@ -17,8 +17,8 @@ class CreateWorks extends Migration
             $table -> id();
             $table -> foreignId('user_id')->constrained()->cascadeOnDelete();
             $table -> date('date');
-            $table -> timestamp('work-start_at');
-            $table -> timestamp('work-finish_at')->nullable();
+            $table -> time('work_start_time');
+            $table -> time('work_finish_time')->nullable();
             $table -> timestamp('created_at')->useCurrent()->nullable();
             $table -> timestamp('updated_at')->useCurrent()->nullable();
         });

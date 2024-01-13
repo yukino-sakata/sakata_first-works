@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\WorkController;
+use App\Http\Controllers\RestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,7 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::middleware('auth')->group(function () {
     Route::get('/stamp', [AuthController::class, 'stamp']);
 });
-Route::post('/work-start', [AuthController::class, 'create']);
-Route::post('/work-finish', [AuthController::class, 'update']);
+Route::post('/work-start', [WorkController::class, 'workStart']);
+Route::post('/work-finish', [WorkController::class, 'workFinish']);
+Route::post('/rest-start', [RestController::class, 'restStart']);
+Route::post('/rest-end', [RestController::class, 'restEnd']);

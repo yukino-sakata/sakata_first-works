@@ -16,8 +16,8 @@ class CreateRests extends Migration
         Schema::create('rests', function (Blueprint $table) {
             $table -> id();
             $table -> foreignId('work_id')->constrained()->cascadeOnDelete();
-            $table -> timestamp('rest-start_at');
-            $table -> timestamp('rest-end_at')->nullable();
+            $table -> time('rest_start_time');
+            $table -> time('rest_end_time')->nullable();
             $table -> timestamp('created_at')->useCurrent()->nullable();
             $table -> timestamp('updated_at')->useCurrent()->nullable();
         });

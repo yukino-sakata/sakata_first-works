@@ -35,11 +35,12 @@
                     </form>
                 </div>
                 <div class="stamp__rests">
-                    <form class="stamps__rest">
+                    <form class="stamps__rest" action="/rest-start" method="post">
                     @csrf
                         <button class="stamp__rest-start">休憩開始</button>
                     </form>
-                    <form class="stamps__rest">
+                    <form class="stamps__rest" action="/rest-end" method="post">
+                    @csrf
                         <button class="stamp__rest-end">休憩終了</button>
                     </form>
                 </div>
