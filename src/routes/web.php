@@ -21,6 +21,8 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::middleware('auth')->group(function () {
     Route::get('/stamp', [AuthController::class, 'stamp']);
 });
+Route::get('/date',[AuthController::class,'date']);
+
 Route::post('/work-start', [WorkController::class, 'workStart']);
 Route::post('/work-finish', [WorkController::class, 'workFinish']);
 Route::post('/rest-start', [RestController::class, 'restStart']);

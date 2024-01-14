@@ -1,0 +1,71 @@
+.header__content {
+    width: 30%;
+    margin: 0;
+}
+
+.header-nav__list {
+    width: 300px;
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+}
+
+.nav-link__home,
+.nav-link__date,
+.nav-link__button {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.content {
+    width: 90%;
+    margin : 0 auto;
+    text-align: center; 
+}
+
+.date-select {
+    padding: 30px;
+    font-weight: bold;
+}
+
+.date-table {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.table-row {
+    border-top: solid 1px #CCC;
+}
+
+.table-header__item {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 20px 40px;
+    width: 100px;
+    text-align: left;
+}
+
+.table-date__item {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 20px 40px;
+    width: 100px;
+    text-align: left;
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
+}
+
+.pagination {
+    display: flex;
+    margin: 0 auto;
+    width: 600px;
+    justify-content: center;
+}
