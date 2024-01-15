@@ -28,8 +28,8 @@ class WorkController extends Controller
     public function workFinish(Request $request){
         $user = Auth::user();
         $dt =Carbon::now();
-        $rest = Work::where('user_id', $user->id);
-        $rest -> update([
+        $work = Work::where('user_id', $user->id);
+        $work -> update([
             'work_finish_time' => $dt->toTimeString(),
             'updated_at' => $dt,
         ]);

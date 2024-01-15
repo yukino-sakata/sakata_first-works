@@ -35,9 +35,9 @@
                 @foreach ($users as $user)
                 <tr class="table-row">
                     <td class="table-date__item">{{$user->name}}</td>
-                    <td class="table-date__item">///</td>
-                    <td class="table-date__item">///</td>
-                    <td class="table-date__item">///</td>
+                    <td class="table-date__item">{{$works->work_start_time}}</td>
+                    <td class="table-date__item">{{$works->work_finish_time}}</td>
+                    <td class="table-date__item">{{$rest->rest_start_time}}</td>
                     <td class="table-date__item">///</td>
                 </tr>
                 @endforeach

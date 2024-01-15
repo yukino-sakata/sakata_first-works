@@ -13,12 +13,13 @@ class Rest extends Model
         'work_id',
         'date',
         'rest_start_time',
-        'rest_end_time'
+        'rest_end_time',
+        'total_rest_time'
     ];
 
     protected $hidden = [
-        'created_time',
-        'updated_time'
+        'created_at',
+        'updated_at'
     ];
 
     public function work(){

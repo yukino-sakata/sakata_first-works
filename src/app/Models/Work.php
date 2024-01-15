@@ -13,7 +13,8 @@ class Work extends Model
         'user_id',
         'date',
         'work_start_time',
-        'work_finish_time'
+        'work_finish_time',
+        'total_work_time'
     ];
 
     protected $hidden = [

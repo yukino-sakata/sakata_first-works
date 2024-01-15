@@ -20,6 +20,7 @@ class CreateRests extends Migration
             $table -> time('rest_end_time')->nullable();
             $table -> timestamp('created_at')->useCurrent()->nullable();
             $table -> timestamp('updated_at')->useCurrent()->nullable();
+            $table -> time('total_rest_time')->nullable();
         });
     }
 
