@@ -27,25 +27,23 @@ class RestController extends Controller
     }
 
     public function restEnd(Request $request){
-        //休憩終了時間の更新対象を取得//
+        //休憩終了時間の更新//
         $user = Auth::user()->id;
         $date = Carbon::today();
         $dt = Carbon::now();
         $work = Work::where('user_id',$user)->where('date',$date)->first();
         $rest = Rest::where('work_id',$work->id)->where('rest_end_time', )->first();
-
-        //合計休憩時間の計算//
-        $allRests = Rest::where('work_id',$work->id)->where('rest_end_time', )->get();            foreach($allRests as $allRest){
-            $restStartTime = strtotime($allRest->rest_start_time);
-            $restEndTime = strtotime($allRest->rest_end_time);
-            $restTime = $restEndTime - $restStartTime;
-        }
-        $sumRestTime = date('H:i:s',strtotime($restTime));
-
         $rest -> update([
             'rest_end_time' => $dt->toTimeString(),
             'updated_at' => $dt,
-            'total_rest_time' => $sumRestTime,
+        ]);
+
+        //休憩時間の計算//
+        $restStartTime = strtotime($rest->rest_start_time);
+        $restEndTime = strtotime($rest->rest_end_time);
+        $restTime = date('H:i:s',$restEndTime - $restStartTime - 32400);
+        $rest -> update([
+            'rest_time' => $restTime,
         ]);
 
         return redirect('stamp');

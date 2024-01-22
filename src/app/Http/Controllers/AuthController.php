@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Work;
 use App\Models\Rest;
-use Illuminate\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class AuthController extends Controller
 
@@ -26,12 +26,7 @@ class AuthController extends Controller
     }
 
     public function date(){
-        $users = User::Paginate(5);
-        $works = Work::all();
-        $rests = Rest::all();
-        return view('auth.date',
-         ['users' => $users ,
-        'works' => $works ,
-        'rests' => $rests ]);
+        $users = User::join('works', 'users.id', '=', 'works.user_id')->paginate(5);
+        return view('auth.date',['users' => $users ,]);
     }
 }

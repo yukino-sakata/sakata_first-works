@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Rest;
 
 class Work extends Model
 {
@@ -14,7 +15,8 @@ class Work extends Model
         'date',
         'work_start_time',
         'work_finish_time',
-        'total_work_time'
+        'work_time',
+        'total_rest_time'
     ];
 
     protected $hidden = [
@@ -23,6 +25,11 @@ class Work extends Model
     ];
 
     public function user(){
-        $this -> belongsTo('User::class');
+        return $this -> belongsTo('User::class');
     }
+
+    public function rests(){
+        return $this -> hasMany('App\Models\Rest');
+    }
+
 }

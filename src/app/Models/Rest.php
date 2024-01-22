@@ -14,7 +14,7 @@ class Rest extends Model
         'date',
         'rest_start_time',
         'rest_end_time',
-        'total_rest_time'
+        'rest_time'
     ];
 
     protected $hidden = [
@@ -23,6 +23,6 @@ class Rest extends Model
     ];
 
     public function work(){
-        $this -> belongsTo('Work::class');
+        return $this -> belongsTo('Work::class');
     }
 }

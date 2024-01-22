@@ -18,9 +18,9 @@ class CreateRests extends Migration
             $table -> foreignId('work_id')->constrained()->cascadeOnDelete();
             $table -> time('rest_start_time');
             $table -> time('rest_end_time')->nullable();
+            $table -> time('rest_time')->nullable();
             $table -> timestamp('created_at')->useCurrent()->nullable();
             $table -> timestamp('updated_at')->useCurrent()->nullable();
-            $table -> time('total_rest_time')->nullable();
         });
     }
 
