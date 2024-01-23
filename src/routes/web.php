@@ -27,3 +27,7 @@ Route::post('/work-start', [WorkController::class, 'workStart']);
 Route::post('/work-finish', [WorkController::class, 'workFinish']);
 Route::post('/rest-start', [RestController::class, 'restStart']);
 Route::post('/rest-end', [RestController::class, 'restEnd']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

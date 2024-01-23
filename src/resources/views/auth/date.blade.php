@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/date.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
 @endsection
 @section('nav')
     <div class="header__content">

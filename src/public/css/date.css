@@ -67,7 +67,6 @@ svg.w-5.h-5 {
     display: flex;
     margin: 0 auto;
     height: 100px;
-    line-height: 100px;
     width: 600px;
     justify-content: center;
 }

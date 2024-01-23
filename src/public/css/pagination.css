@@ -13,24 +13,31 @@
 
 .paginationWrap ul.pagination li {
     display: inline;
-    margin-right: 4px;
+}
+
+.prev_link ,
+.next_link{
+    background: #FFF;
+    color: #1E90FF;
+    padding: 12px 12px;
+    text-align: center;
 }
 
 .paginationWrap ul.pagination li a {
-    color: #2f3859;
-    padding: 8px 14px;
+    background: #FFF;
+    color: #1E90FF;
+    padding: 12px 12px;
     text-decoration: none;
 }
 
 .paginationWrap ul.pagination li a.active {
-    background-color: #4b90f6;
+    background-color: #1E90FF;
     color: white;
-    border-radius: 40px;
     width: 38px;
-    height: 38px;
+    height: 45px;
 }
 
 .paginationWrap ul.pagination li a:hover:not(.active) {
-    background-color: #e1e7f0;
-    border-radius: 40px;
+    background-color: #FFF;
+    border: solid 1px #1E90FF;
 }
