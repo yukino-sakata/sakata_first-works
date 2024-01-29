@@ -23,7 +23,7 @@ class RestController extends Controller
         ];
         unset($form['_token']);
         Rest::create($form);
-        return redirect('stamp');
+        return redirect('stamp')->with('message','休憩開始しました');
     }
 
     public function restEnd(Request $request){
@@ -46,6 +46,6 @@ class RestController extends Controller
             'rest_time' => $restTime,
         ]);
 
-        return redirect('stamp');
+        return redirect('stamp')->with('message','休憩終了しました');
     }
 }

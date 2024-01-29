@@ -22,11 +22,27 @@ class AuthController extends Controller
     }
 
     public function stamp(Request $request){
-        return view('auth.stamp');
+        $user = Auth::User()->id;
+        $date = Carbon::today();
+        $work = Work::where('user_id', $user)->where('date',$date)->get();
+        $openWork = Work::where('user_id', $user)->where('date',$date)->where('work_finish_time',)->get();
+        $workId = Work::where('user_id', $user)->where('date',$date)->where('work_finish_time',)->first();
+
+        if(count($openWork)>0){
+        $rest = Rest::where('work_id',$workId->id)->where('rest_end_time',)->get();
+        return view('auth.stamp')->with('openWork', $openWork)->with('rest', $rest)->with('work',$work);
+        }
+        elseif(count($work)>0){
+        return view('auth.stamp')->with('openWork',$openWork)->with('work',$work);
+        }
+        else
+        {
+        return view('auth.stamp')->with('openWork', $openWork)->with('work',$work);
+        }
     }
 
     public function date(){
         $users = User::join('works', 'users.id', '=', 'works.user_id')->paginate(5);
-        return view('auth.date',['users' => $users ,]);
+        return view('auth.date',['users' => $users ]);
     }
 }

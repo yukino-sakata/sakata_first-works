@@ -23,7 +23,7 @@ class WorkController extends Controller
         ];
         unset($form['_token']);
         Work::create($form);
-        return redirect('stamp')->with(['work_start'=>$form]);
+        return redirect('stamp')->with(['work_start'=>$form])->with('message','勤務開始しました');
     }
 
     public function workFinish(Request $request){
@@ -32,6 +32,10 @@ class WorkController extends Controller
         $dt = Carbon::now();
         $date = Carbon::today();
         $work = Work::where('user_id', $user->id)->where('work_finish_time',)->where('date',$date)->first();
+        $workId =Work::where('user_id', $user->id)->where('work_finish_time',)->where('date',$date)->get();
+        if(count($workId)===0){
+            return redirect('stamp');
+        }else{
         $work -> update([
             'work_finish_time' => $dt->toTimeString(),
             'updated_at' => $dt,
@@ -40,23 +44,24 @@ class WorkController extends Controller
         //合計休憩時間の計算//
         $workId = $work -> id;
         $allRests = Rest::where('work_id',$workId)->get();
-        $totalRestTime =0;
+        $totalRestTimeInt =0;
         foreach( $allRests as $allRest){
             $restTime = $allRest -> rest_time;
-            $totalRestTime += strtotime($restTime);
+            $restTimeInt = strtotime($restTime) -32400;
+            $totalRestTimeInt += $restTimeInt;
         };
 
         //勤務時間の計算//
         $workStartTime = strtotime($work->work_start_time);
         $workFinishTime = strtotime($work->work_finish_time);
-        $workTime = date('H:i:s',$workFinishTime - $workStartTime - $totalRestTime );
-        $TotalRestTime = date('H:i:s',$totalRestTime);
+        $workTime = date('H:i:s',$workFinishTime - $workStartTime - $totalRestTimeInt -32400 );
+        $totalRestTime = date('H:i:s',$totalRestTimeInt);
 
         $work -> update([
             'work_time' => $workTime,
-            'total_rest_time' => $TotalRestTime,
+            'total_rest_time' => $totalRestTime,
         ]);
-        return redirect('stamp');
+        return redirect('stamp')->with('message','勤務終了しました');
+        }
     }
-
 }

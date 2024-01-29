@@ -31,17 +31,26 @@
     font-weight: bold;
     font-size: 18px;
     height: 100px;
-    line-height: 100px;
 }
 
 .message-text {
     margin: 0;
+    padding-top: 40px;
+}
+
+.stamp-message {
+    color: blue;
+    padding-top: 0px;
 }
 
 .stamp__content-inner {
     width: 80%;
     margin: auto;
     text-align: center;
+}
+
+.stamp__works {
+    padding-top: 45px ;
 }
 
 .stamp__works,
