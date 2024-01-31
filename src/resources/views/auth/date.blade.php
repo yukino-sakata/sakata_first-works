@@ -26,15 +26,17 @@
         <div class="content__inner">
             <div class="date__menu">
                 <div class="date__select">
-                    <form action="/date-prev" method="post">
-                    @csrf
-                            <input type="hidden" name="date" value="{{ $date }}" id="date">
-                            <button class="date-nav">＜</button>
-                    </form>
-                            {{ $date }}
-                    <form action="/date-next" method="post">
+                    <form action="/date" method="post">
                     @csrf
                         <input type="hidden" name="date" value="{{ $date }}" id="date">
+                        <input type="hidden" name="select" value="prev">
+                        <button class="date-nav">＜</button>
+                    </form>
+                            {{ $date }}
+                    <form action="/date" method="post">
+                    @csrf
+                        <input type="hidden" name="date" value="{{ $date }}" id="date">
+                        <input type="hidden" name="select" value="next">
                         <button class="date-nav">＞</button>
                     </form>
                 </div>
