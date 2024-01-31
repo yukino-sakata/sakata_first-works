@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RestController extends Controller
 {
-    public function restStart(Request $request){
+    public function restStart(){
         $user = Auth::user()->id;
         $date = Carbon::today();
         $work = Work::where('user_id',$user)->where('date', $date)->first();
@@ -26,7 +26,7 @@ class RestController extends Controller
         return redirect('stamp')->with('message','休憩開始しました');
     }
 
-    public function restEnd(Request $request){
+    public function restEnd(){
         //休憩終了時間の更新//
         $user = Auth::user()->id;
         $date = Carbon::today();

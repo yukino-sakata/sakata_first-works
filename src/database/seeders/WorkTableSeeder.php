@@ -16,7 +16,7 @@ class WorkTableSeeder extends Seeder
     {
         $param = [
             'user_id' => '1',
-            'date' => '2024-01-01',
+            'date' => '2024-01-30',
             'work_start_time' => '09:00:00',
             'work_finish_time' => '18:00:00',
         ];

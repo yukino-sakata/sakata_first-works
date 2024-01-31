@@ -24,7 +24,21 @@
 @section('content')
     <div class="content">
         <div class="content__inner">
-            <div class="date-select">XXXX-XX-XX</div>
+            <div class="date__menu">
+                <div class="date__select">
+                    <form action="/date-prev" method="post">
+                    @csrf
+                            <input type="hidden" name="date" value="{{ $date }}" id="date">
+                            <button class="date-nav">＜</button>
+                    </form>
+                            {{ $date }}
+                    <form action="/date-next" method="post">
+                    @csrf
+                        <input type="hidden" name="date" value="{{ $date }}" id="date">
+                        <button class="date-nav">＞</button>
+                    </form>
+                </div>
+            </div>
             <table class="date-table">
                 <tr class="table-row">
                     <th class="table-header__item">名前</th>

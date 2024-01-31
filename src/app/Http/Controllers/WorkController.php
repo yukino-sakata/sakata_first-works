@@ -10,9 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
-        public function workStart(Request $request){
+        public function workStart(){
         $user = Auth::user();
-
         $dt = Carbon::now();
         $form = [
             'user_id' => $user->id,
@@ -26,7 +25,7 @@ class WorkController extends Controller
         return redirect('stamp')->with(['work_start'=>$form])->with('message','勤務開始しました');
     }
 
-    public function workFinish(Request $request){
+    public function workFinish(){
         //勤務終了時間の更新//
         $user = Auth::user();
         $dt = Carbon::now();

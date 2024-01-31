@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\RestController;
+use App\Http\Controllers\StampController;
+use App\Http\Controllers\DateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +21,12 @@ use App\Http\Controllers\RestController;
 Route::get('/', [AuthController::class, 'index']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::middleware('auth')->group(function () {
-    Route::get('/stamp', [AuthController::class, 'stamp']);
+    Route::get('/stamp', [StampController::class, 'stamp']);
 });
-Route::get('/date',[AuthController::class,'date']);
-
+Route::get('/date',[DateController::class,'date']);
+Route::post('/date-prev',[DateController::class,'datePrev'])->name('date');
+Route::post('/date-next',[DateController::class,'dateNext']);
 Route::post('/work-start', [WorkController::class, 'workStart']);
 Route::post('/work-finish', [WorkController::class, 'workFinish']);
 Route::post('/rest-start', [RestController::class, 'restStart']);
 Route::post('/rest-end', [RestController::class, 'restEnd']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
