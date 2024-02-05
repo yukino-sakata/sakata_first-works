@@ -25,7 +25,6 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/date',[DateController::class,'date']);
 Route::post('/date',[DateController::class,'date']);
-//Route::post('/date-next',[DateController::class,'dateNext']);
 Route::post('/work-start', [WorkController::class, 'workStart']);
 Route::post('/work-finish', [WorkController::class, 'workFinish']);
 Route::post('/rest-start', [RestController::class, 'restStart']);

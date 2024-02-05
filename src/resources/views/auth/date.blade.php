@@ -9,7 +9,7 @@
         <nav class="header-nav">
             <ul class="header-nav__list">
                 <li class="nav__item"><a class="nav-link__home" href="/stamp">ホーム</a></li>
-                <li class="nav__item"><a class="nav-link__date" href="/date">日付一覧</a></li>
+                <li class="nav__item"><a class="nav-link__date" href="/date?={{$date}}">日付一覧</a></li>
                 <li class="nav__item">
                     <form class="nav-link__logout" action="/logout" method="post">
                     @csrf
@@ -26,14 +26,18 @@
         <div class="content__inner">
             <div class="date__menu">
                 <div class="date__select">
-                    <form action="/date" method="post">
+                    <form action="/date?={{ $date }}" method="post">
                     @csrf
                         <input type="hidden" name="date" value="{{ $date }}" id="date">
                         <input type="hidden" name="select" value="prev">
                         <button class="date-nav">＜</button>
                     </form>
-                            {{ $date }}
-                    <form action="/date" method="post">
+                    @if(empty($date_param))
+                    {{$date}}
+                    @else
+                            {{ $date_param }}
+                    @endif
+                    <form action="/date?={{ $date }}" method="post">
                     @csrf
                         <input type="hidden" name="date" value="{{ $date }}" id="date">
                         <input type="hidden" name="select" value="next">
