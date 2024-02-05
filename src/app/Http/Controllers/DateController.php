@@ -16,27 +16,25 @@ class DateController extends Controller
         $action = $request->select;
         $date_param = $request->date;
         $appends_param = [];
-        $dt = [];
-
 
         if(empty($action)){
-            $date = Carbon::today()->format('Y-m-d');
+            $dt = new DateTime($date_param);
+            $date = $dt->format('Y-m-d');
             $appends_param['date'] = $date_param;
 
         }elseif($action === 'prev'){
             $dt = new DateTime($date_param);
             $date = $dt->modify('-1day')->format('Y-m-d');
-            $appends_param['date'] = $date_param;
+            $appends_param['date'] = $date;
 
         }elseif($action === 'next'){
             $dt = new DateTime($date_param);
             $date = $dt->modify('+1day')->format('Y-m-d');
-            $appends_param['date'] = $date_param;
+            $appends_param['date'] = $date;
 
         }
-            $users = User::join('works', 'users.id', '=', 'works.user_id')->where('date',$date_param)->paginate(5);
+            $users = User::join('works', 'users.id', '=', 'works.user_id')->where('date',$date)->paginate(5);
             $users->appends($appends_param);
-            var_dump($date_param);
             return view('auth.date',['users' => $users ])->with('date',$date)->with('date_param',$date_param);
 
 
