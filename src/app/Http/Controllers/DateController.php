@@ -18,6 +18,7 @@ class DateController extends Controller
         $appends_param = [];
         $dt = [];
 
+
         if(empty($action)){
             $date = Carbon::today()->format('Y-m-d');
             $appends_param['date'] = $date_param;
@@ -35,6 +36,7 @@ class DateController extends Controller
         }
             $users = User::join('works', 'users.id', '=', 'works.user_id')->where('date',$date_param)->paginate(5);
             $users->appends($appends_param);
+            var_dump($date_param);
             return view('auth.date',['users' => $users ])->with('date',$date)->with('date_param',$date_param);
 
 
