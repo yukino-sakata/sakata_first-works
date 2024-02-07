@@ -12,4 +12,4 @@ COACHTECH 初級案件
 
 ##使用技術
 Lravel 8.83.8
-(HTML,CSS,PHP)
+(使用言語：PHP)
