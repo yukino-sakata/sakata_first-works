@@ -24,9 +24,6 @@ class StampController extends Controller
         $rest = Rest::where('work_id',$workId->id)->where('rest_end_time',)->get();
         return view('auth.stamp')->with('openWork', $openWork)->with('rest', $rest)->with('work',$work);
         }
-//        elseif(count($work)>0){
-//        return view('auth.stamp')->with('openWork',$openWork)->with('work',$work);
-//        }
         else
         {
         return view('auth.stamp')->with('openWork',$openWork)->with('work',$work);
