@@ -41,7 +41,7 @@ class RestController extends Controller
         //休憩時間の計算//
         $restStartTime = strtotime($rest->rest_start_time);
         $restEndTime = strtotime($rest->rest_end_time);
-        $restTime = date('H:i:s',$restEndTime - $restStartTime - 32400);
+        $restTime = date('H:i:s',$restEndTime - $restStartTime -32400);
         $rest -> update([
             'rest_time' => $restTime,
         ]);

@@ -43,19 +43,20 @@ class WorkController extends Controller
         //合計休憩時間の計算//
         $workId = $work -> id;
         $allRests = Rest::where('work_id',$workId)->get();
-        $totalRestTimeInt =0;
+        $totalRestTimeSet = 0;
         foreach( $allRests as $allRest){
             $restTime = $allRest -> rest_time;
-            $restTimeInt = strtotime($restTime) -32400;
-            $totalRestTimeInt += $restTimeInt;
+            $restTimeDt = '1970-01-01' .' '. $restTime;
+            $restTimeInt = strtotime($restTimeDt)+32400;
+            $totalRestTimeSet += $restTimeInt;
         };
 
         //勤務時間の計算//
         $workStartTime = strtotime($work->work_start_time);
         $workFinishTime = strtotime($work->work_finish_time);
-        $workTime = date('H:i:s',$workFinishTime - $workStartTime - $totalRestTimeInt -32400 );
-        $totalRestTime = date('H:i:s',$totalRestTimeInt);
-
+        $allTime = $workFinishTime - $workStartTime -32400;
+        $workTime = date('H:i:s',$allTime - $totalRestTimeSet);
+        $totalRestTime = date('H:i:s',$totalRestTimeSet -32400);
         $work -> update([
             'work_time' => $workTime,
             'total_rest_time' => $totalRestTime,
